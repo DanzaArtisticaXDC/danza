@@ -1,0 +1,516 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #ffff;
+}
+a{
+    text-decoration: none;
+   color: white;
+}
+header{
+    display: flex;
+    background-color: #383535;
+    min-height: 35px;
+    justify-content: space-between;
+    align-items: center;
+    align-content: right;
+    padding: 10px;
+    position: relative;
+    left: 0;
+}
+.insta{
+    position: relative;
+    right: 710px;
+}
+.contacto{
+    position: relative;
+    right: 30px;
+    color: #fff;
+}
+.logo{
+   display: flex;
+   align-items: center;
+}
+.logo img{
+    height: 120px;
+    margin-right: 12px;
+}
+
+.slide {
+    position: relative;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+    margin-top: 26px;
+}
+.slide-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: calc( 300px + 3em);
+}
+.slide-open:checked + .slide-item {
+    position: static;
+    opacity: 100;
+}
+.slide-item {
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s ease-out;
+}
+.slide-item img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+.slide-control {
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 40px;
+    height: 40px;
+    line-height: 35px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    cursor: pointer;
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    text-align: center;
+    width: 40px;
+    z-index: 10;
+}
+.slide-control.prev {
+    left: 2%;
+}
+.slide-control.next {
+    right: 2%;
+}
+.slide-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: #aaaaaa;
+}
+#slide-1:checked ~ .control-1,
+#slide-2:checked ~ .control-2,
+#slide-3:checked ~ .control-3 {
+    display: block;
+}
+.slide-indicador {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+.slide-indicador li {
+    display: inline-block;
+    margin: 0 5px;
+}
+.slide-circulo {
+    color: #828282;
+    cursor: pointer;
+    display: block;
+    font-size: 35px;
+}
+.slide-circulo:hover {
+    color: #aaaaaa;
+}
+#slide-1:checked ~ .control-1 ~ .slide-indicador 
+     li:nth-child(1) .slide-circulo,
+#slide-2:checked ~ .control-2 ~ .slide-indicador 
+      li:nth-child(2) .slide-circulo,
+#slide-3:checked ~ .control-3 ~ .slide-indicador 
+      li:nth-child(3) .slide-circulo {
+    color: #428bca;
+}
+#titulo {
+    width: 100%;
+    position: absolute;
+    padding: 0px;
+    margin: 0px auto;
+    text-align: center;
+    font-size: 27px;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Open Sans', sans-serif;
+    z-index: 9999;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), 
+         -1px 0px 2px rgba(255, 255, 255, 0);
+}
+nav a{
+    font-weight: 600;
+    padding-right: 11px;
+}
+nav a:hover{
+    color: #F0DB4F;
+}
+
+@media (max-width: 680px){
+    header{
+        flex-direction: column;
+    }
+    nav{
+        padding: 10px 0px;
+    }
+}
+
+.nombre-empresa{
+    font-family: American Typewriter;
+    text-decoration: underline;
+    font-size: 20pt;
+    font-weight: bold;
+    color: #ffff;
+}
+
+.eslogan{
+    font-family: American Typewriter;
+    text-decoration: underline;
+    font-size: 9pt;
+    font-weight: bold;
+    color: aliceblue;
+}
+.AUDIOS{
+    background-color: rgb(153, 232, 252);
+    min-height: 70px;
+    align-items: center;
+    padding: 10px;
+    align-content: center;
+    align-tracks: center;
+}
+.HIPER{
+    display: flex;
+    background-color: #030447ce;
+    min-height: 50px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px;
+}
+.contenedor{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    top: 40px;
+}
+.contenedor figure{
+    position: relative;
+    height: 550px;
+    width: 450px;
+    overflow: hidden;
+    border-radius: 2px;
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.50);
+    cursor: pointer;
+}
+.contenedor figure img{
+    width: 100%;
+    height: 100%;
+    transition: all 500ms ease-out;
+}
+.contenedor figure .capa{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 103, 123, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+}
+.contenedor figure:hover > .capa{
+    opacity: 1;
+    visibility: visible;
+}
+.contenedor figure:hover > .capa h3{
+    margin-top: 70px;
+    margin-bottom: 15px;
+}
+.contenedor figure:hover .capa h3{
+    color: #fff;
+    font-weight: 300px;
+    margin-bottom: 20px;
+    transition: all 500ms ease-out;
+    margin-top: 30px;
+    
+}
+.contenedor figure:hover .capa p{
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5;
+    width: 200%;
+    max-width: 220px;
+    margin: auto;
+    
+}
+.contenedor figure:hover img{
+    transform: scale(1.3)
+}
+.quienes{
+    
+    position: relative;
+    left: 300px;
+    top: 30px;
+   transform: translate(-50% -50%);
+    text-align: center;
+    border-bottom: .7vw solid #080808;
+    overflow: hidden;
+    animation: anim 2.5s linear forwards;
+}
+.quienes h1{
+    font-size: 60px;
+    color: #000000;
+    position: relative;
+    top: 40px;
+}
+@keyframes anim{
+    0%{
+        width: 0;
+        height: 0;
+    }
+    30%{
+        width: 50%;
+        height: 0;
+    }
+    60%{
+        width: 59vw;
+        height: 12vw;
+    }
+    80%{
+        width: 59vw;
+        height: 12vw;
+    }
+    100%{
+        width: 59vw;
+        height: 12vw;
+    }
+}
+
+.texto1{
+    height: 500px;
+    width: 550px;
+    background-color: aquamarine;
+    border: 10px double gray;
+    padding: 10px;
+    position: relative;
+    top: 50px;
+    left: 100px;
+}
+.texto1 h4{
+    font-family: cursive;
+    position: relative;
+    top: 80px;
+}
+.PORTADA{
+    width: 600px;
+    height: 500px;
+    background-color: #f5f5f5;
+    border: 5px double gray;
+    padding: 2px;
+    position: relative;
+    bottom: 450px;
+    left: 650px;
+}
+.COREOGRAFIAS{
+    width: 600px;
+    height: 90px;
+    background-color: #F0DB4F;
+    border: 6px double gray;
+    padding: 3px;
+    position: relative;
+    top: 110px;
+    left: 400px;
+
+}
+.COREO{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgb(9, 74, 136);
+    position: relative;
+    top: 120px;
+}
+.ecuador{
+    width: 1350px;
+    height: 50px;
+    background-color: #F0DB4F;
+    border: 6px double gray;
+    padding: 3px;
+    position: relative;
+    top: 121px;
+    left: 0;
+}
+.CARD{
+    position: relative;
+    width: 300px;
+    height: 350px;
+    margin: 10px;
+}
+.CARD .FACE{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: .5s;
+}
+.CARD .FRONT{
+    transform: perspective(600px) rotateY(0deg);
+    box-shadow: 0 5px 10px #000;
+}
+.CARD .FRONT img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.CARD .FRONT h3{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    background: rgba(0, 0, 0, .4);
+    text-align: center;
+}
+.CARD .BACK{
+    transform: perspective(600px) rotateY(180deg);
+    background: rgb(3, 35, 54);
+    padding: 15px;
+    color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    box-shadow: 0 5px 10px #000;
+}
+
+.CARD .BACK .link{
+    border-top: solid 1px #f3f3f3;
+    height: 50px;
+    line-height: 50px;
+}
+.CARD .BACK .link a{
+    color: #f3f3f3;
+}
+.CARD .BACK .link h3{
+    font-size: 30px;
+    margin-top: 20px;
+    letter-spacing: 2px;
+}
+.CARD .BACK .link p{
+    letter-spacing: 1px;
+}
+.CARD:hover .FRONT{
+    transform: perspective(600px) rotateY(180deg);
+}
+.CARD:hover .BACK{
+    transform: perspective(600px) rotateY(360deg);
+}
+
+.COREOB{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: rgb(9, 74, 136);
+    position: relative;
+    top: 100px;
+}
+.Bolivia{
+    width: 1350px;
+    height: 50px;
+    background-color: #F0DB4F;
+    border: 6px double gray;
+    padding: 3px;
+    position: relative;
+    top: 102px;
+    left: 0;
+    }
+.grabaciones{
+        width: 100%;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        position: relative;
+        top: 400px;
+}
+.GRABACIONES{
+    width: 600px;
+    height: 90px;
+    background-color: #F0DB4F;
+    border: 6px double gray;
+    padding: 3px;
+    position: relative;
+    top: 120px;
+    left: 400px;
+
+}
+.container{
+    width: 100%;
+    display: flex;
+    max-width: 1100px;
+    position: relative;
+    bottom: 280px;
+}
+.tarjeta{
+    width: 100%;
+    margin: 20px;
+    border-radius: 6px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+    cursor: default;
+    transition: all 400ms ease;
+    position: relative;
+    left: 100px;
+}
+ .tarjeta:hover{
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+ }
+ .tarjeta img{
+    width: 100%;
+    height: 210px;
+ }
+ .tarjeta .CONTENIDO{
+    padding: 15px;
+    text-align: center;
+ }
+ .tarjeta .CONTENIDO p{
+    line-height: 1.5;
+    color: #6a6a6a;
+ }
+ .tarjeta .CONTENIDO h3{
+    font-weight: 400;
+    margin-bottom: 15px;
+ }
+ .tarjeta .CONTENIDO a{
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    color: #2fb4cc;
+    border: 1px solid #2fb4cc;
+    border-radius: 4px;
+    transition: all 400ms ease;
+ }
+ 
+ .tarjeta .CONTENIDO a:hover{
+    background: #2fb4cc;
+    color: #fff;
+ }
